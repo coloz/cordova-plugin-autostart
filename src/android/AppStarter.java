@@ -39,7 +39,8 @@ public class AppStarter {
             activityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             activityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             if (onAutostart) {
-              activityIntent.putExtra(CORDOVA_AUTOSTART, true);
+            //   activityIntent.putExtra(CORDOVA_AUTOSTART, true);
+            activityIntent.putExtra("cdvStartInBackground",true);
             }
             context.startActivity(activityIntent);
         }
@@ -49,7 +50,8 @@ public class AppStarter {
             Intent serviceIntent = new Intent();
             serviceIntent.setClassName(context, serviceClassName);
             if ( onAutostart ) {
-                serviceIntent.putExtra(CORDOVA_AUTOSTART, true);
+                // serviceIntent.putExtra(CORDOVA_AUTOSTART, true);
+                serviceIntent.putExtra("cdvStartInBackground",true);
             }
             context.startService(serviceIntent);
         }
